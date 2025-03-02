@@ -1,0 +1,195 @@
+/* index.css */
+
+:root {
+  /** Dark theme primary colors */
+  --clr-primary-a0: #400040;
+  --clr-primary-a10: #551f53;
+  --clr-primary-a20: #693a67;
+  --clr-primary-a30: #7e547b;
+  --clr-primary-a40: #936f90;
+  --clr-primary-a50: #a88aa5;
+
+  /** Dark theme surface colors */
+  --clr-surface-a0: #170017;
+  --clr-surface-a10: #2b1d2c;
+  --clr-surface-a20: #423542;
+  --clr-surface-a30: #5a4e5a;
+  --clr-surface-a40: #746974;
+  --clr-surface-a50: #8e858e;
+
+  /** Dark theme tonal surface colors */
+  --clr-surface-tonal-a0: #1b021b;
+  --clr-surface-tonal-a10: #2f1e30;
+  --clr-surface-tonal-a20: #463646;
+  --clr-surface-tonal-a30: #5e4f5e;
+  --clr-surface-tonal-a40: #766a77;
+  --clr-surface-tonal-a50: #908690;
+
+  /* Spacing variables */
+  --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --spacing-sm: clamp(0.5rem, 2vw, 0.75rem);
+  --spacing-md: clamp(1rem, 3vw, 1.5rem);
+  --spacing-lg: clamp(1.5rem, 4vw, 2rem);
+  --spacing-xl: clamp(2rem, 5vw, 3rem);
+
+  /* Font size variables */
+  --font-size-xs: clamp(0.75rem, 2vw, 0.85rem);
+  --font-size-sm: clamp(0.875rem, 2vw, 1rem);
+  --font-size-md: clamp(1rem, 3vw, 1.25rem);
+  --font-size-lg: clamp(1.25rem, 4vw, 1.5rem);
+  --font-size-xl: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--clr-surface-a0);
+  color: var(--clr-primary-a50);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: var(--spacing-md);
+}
+
+.app-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Form elements */
+input[type="file"],
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: var(--spacing-sm);
+  background-color: var(--clr-surface-a20);
+  color: var(--clr-primary-a50);
+  border: 1px solid var(--clr-surface-a30);
+  border-radius: 6px;
+  font-size: var(--font-size-sm);
+  transition: all 0.3s ease;
+}
+
+button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  background-color: var(--clr-primary-a30);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--clr-primary-a40);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .email-inputs {
+    flex-direction: column !important;
+  }
+
+  .header {
+    flex-direction: column !important;
+    gap: var(--spacing-sm) !important;
+  }
+
+  .button-group {
+    flex-direction: column !important;
+    gap: var(--spacing-sm) !important;
+  }
+
+  button {
+    width: 100% !important;
+  }
+}
+
+/* Utility classes */
+.drop-zone {
+  border: 2px dashed var(--clr-surface-a30);
+  border-radius: 8px;
+  padding: var(--spacing-xl);
+  background-color: var(--clr-surface-a20);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.drop-zone.active {
+  border-color: var(--clr-primary-a40);
+  background-color: var(--clr-surface-a30);
+}
+
+/* Progress bar styles */
+.progress-container {
+  margin: var(--spacing-md) 0;
+  background: var(--clr-surface-a20);
+  border-radius: 8px;
+  padding: var(--spacing-md);
+  position: relative;
+}
+
+.progress-bar {
+  height: 8px;
+  background: linear-gradient(90deg, var(--clr-primary-a30) 0%, var(--clr-primary-a40) 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--spacing-sm);
+}
+
+.progress-text {
+  font-size: var(--font-size-sm);
+  color: var(--clr-primary-a50);
+}
+
+.cancel-button {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  background-color: var(--clr-surface-a30);
+  color: var(--clr-primary-a50);
+  border: 1px solid var(--clr-surface-a40);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-button:hover {
+  background-color: var(--clr-surface-a40);
+  color: white;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
