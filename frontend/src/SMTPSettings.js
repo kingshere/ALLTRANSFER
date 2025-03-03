@@ -152,7 +152,7 @@ const SMTPSettings = () => {
             transition: 'all 0.3s ease'
           }}
         >
-          Retour
+          back
         </button>
       </div>
 
